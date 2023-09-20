@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href={{ url_for('static', filename='style.css') }}></link>
+  </head>
+  <body>
+    <div id="grid_container">
+      
+      <div id="header">
+         <a id="header_a" href={{ url_for('home') }}><img id="header_img" src="/static/booklogo.jpg"></img> </a>
+         <h1 id="header_h1">Management made easy.</h1>
+        
+      </div>
+  
+
+      <div id="body"> 
+        {% block body %}{% endblock %}
+      </div>
+      
+      </body>
+</html>

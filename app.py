@@ -19,9 +19,14 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
+
+  #Query the Database for relevant data per route. Returns APIRequest, translate that to json with .json(), which creates a Dict with a nested List, and a nested Dict in that list. The format to access is: Variable["Dict"][indexOfList].get('Dict')
+  
   data = supabase.table("rooms").select("roomName").eq("roomType->events", "true").execute().json()
+  
   json_data = json.loads(data)
   roomName = json_data["data"][0].get('roomName')
+
   
   roomList = []
   for obj in json_data["data"]:
@@ -30,6 +35,12 @@ def home():
   print(roomList)
   
   return render_template('home.html', roomName=roomName, roomList=roomList)
+
+@app.route("/book-a-room")
+def bookroom():
+  return render_template('bookRoom.html')
+  
+  
 
 print(__name__)
 if __name__ == "__main__":
