@@ -30,8 +30,7 @@ def home():
   
   roomList = []
   for obj in json_data["data"]:
-    roomNameNew = obj["roomName"]
-    roomList.append(roomNameNew)
+    roomList.append(obj["roomName"])
   print(roomList)
   
   return render_template('home.html', roomName=roomName, roomList=roomList)
