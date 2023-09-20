@@ -94,13 +94,15 @@
         <div id="prod1" class="block">
         </div>
         <script>    
-          
-          
+        
           document.getElementById('prod1').innerHTML = "{{roomName}}";
           
         </script>
         
         <div id="prod2" class="block">
+          {% for item in roomList %}
+            <li>{{ item }}</li>
+          {% endfor %}
         </div>
         <div id="prod3" class="block">
         </div>

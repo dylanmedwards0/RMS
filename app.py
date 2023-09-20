@@ -19,12 +19,17 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-  data = supabase.table("rooms").select("roomName").execute().json()
-
+  data = supabase.table("rooms").select("roomName").eq("roomType->events", "true").execute().json()
   json_data = json.loads(data)
   roomName = json_data["data"][0].get('roomName')
   
-  return render_template('home.html', roomName=roomName)
+  roomList = []
+  for obj in json_data["data"]:
+    roomNameNew = obj["roomName"]
+    roomList.append(roomNameNew)
+  print(roomList)
+  
+  return render_template('home.html', roomName=roomName, roomList=roomList)
 
 print(__name__)
 if __name__ == "__main__":
