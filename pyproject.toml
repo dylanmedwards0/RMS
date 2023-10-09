@@ -8,6 +8,8 @@ authors = ["Your Name <you@example.com>"]
 python = ">=3.10.0,<3.11"
 flask = "^2.3.3"
 python-dotenv = "^1.0.0"
+psycopg = "3.1.12"
+poetry = "1.6.1"
 
 [tool.pyright]
 # https://github.com/microsoft/pyright/blob/main/docs/configuration.md

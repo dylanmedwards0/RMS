@@ -1,0 +1,30 @@
+{% extends 'template.html' %}
+{% block title %}Sign Up Confirmation{% endblock %}
+{% block body %}
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+
+<script type="module">
+  import { createSignup } from "/static/script.js";
+    createSignup("{{ firstName }}","{{ lastName }}","{{ email }}","{{ startTime }}","{{ endTime }}");
+    console.log('signupConfirmation page scripts2')
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function(event) {
+
+    });
+</script>
+
+
+<div style="grid-row: 2/3; grid-column: 3/4; color: red">
+  <p>Reservation for </p>
+  <p>{{ firstName }} {{ lastName }}</p>
+  <p></p>
+  <p>Starting at: {{ startTime }}</p>
+  <p>Until: {{ endTime }}</p>
+  <p>We will send you an email confirmation at {{ email }}</p>
+</div>
+
+
+{% endblock %}
