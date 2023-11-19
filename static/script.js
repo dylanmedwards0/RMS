@@ -48,29 +48,10 @@ async function fetchRooms() {
 
 }
 
-/* replaced by createSignup() - can delete
-async function createEntry() {
-  console.log('createEntry script')
-
-  const { data, error } = await supabase
-  .from('reservations')
-  .insert([
-    { id: '1', fName: 'Dylan', lName: 'Edwards', email: 'weebTrash88@aol.com', startTime: '2023-09-09 18:30:00+00', endTime: '2023-09-09 19:30:00+00'},
-  ])
-  .select()
-
-    if (error) {
-        console.error('Error creating: ', error);
-    } else {
-        console.log('Created Reservation:', data);
-    }
-
-}
-*/
-
 export async function createSignup(fName,lName,email,startTime,endTime) {
   console.log('createSignup script')
 
+// to update - id should be checked against current org id
   const { data, error } = await supabase
   .from('reservations')
   .insert([
@@ -103,3 +84,4 @@ else {
     createEntry()
   });
 }
+

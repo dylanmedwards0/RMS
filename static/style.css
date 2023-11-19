@@ -15,8 +15,8 @@
       {
 
         display: grid;
-        grid-template-columns: repeat(5, 1fr);
-        grid-template-rows: repeat(10, 1fr);
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(1, 1fr);
         background-color:#333;
         
       }
@@ -67,8 +67,7 @@
         grid-template-columns: repeat( 7, minmax(50px,auto));
         grid-template-rows: repeat(7, minmax(100px,auto));
         grid-gap: 10px;
-        grid-column: 1/6;
-        grid-row: 2/11;
+
         
       }
        

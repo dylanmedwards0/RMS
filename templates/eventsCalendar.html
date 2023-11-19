@@ -1,0 +1,40 @@
+{% extends 'template.html' %}
+{% block title %}Events Calendar{% endblock %}
+{% block body %}
+
+<link rel="stylesheet" type="text/css" href="/static/calendar.css">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+<script type="module" src="/static/script.js"></script>
+
+<script>
+// Access the embedded JSON data
+var jsonData = {{ json_data | tojson | safe }};
+
+// Now you can use jsonData in your JavaScript code
+console.log(jsonData);
+</script>
+
+  <div id="calendar">
+    <div id="headerCal">
+      <button id="prevMonth">Previous</button>
+      <h2 id="monthYear">Month Year</h2>
+      <button id="nextMonth">Next</button>
+    </div>
+    <table id="days">
+      <tr>
+        <th>Sun</th>
+        <th>Mon</th>
+        <th>Tue</th>
+        <th>Wed</th>
+        <th>Thu</th>
+        <th>Fri</th>
+        <th>Sat</th>
+      </tr>
+    </table>
+    <table id="dates"></table>
+  </div>
+
+  <script src="/static/calendar.js" defer></script>
+
+
+{% endblock %}
