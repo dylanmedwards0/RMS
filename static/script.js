@@ -1,8 +1,9 @@
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
+import os from "os"
 
 //const supabase = createClient('{{ url }}', '{{ key }}');
-const supabaseUrl = 'https://hshcoehesdpiqkewieda.supabase.co'
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhzaGNvZWhlc2RwaXFrZXdpZWRhIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTQyNjkwMTksImV4cCI6MjAwOTg0NTAxOX0.TZmOqR0BItpdkv_WUNtAZa1h99U_XTTgLLbJB1jW_H0'
+const supabaseUrl = os.environ['SUPABASE_URL']
+const supabaseKey = os.environ['SUPABASE_KEY']
 const supabase = createClient(supabaseUrl, supabaseKey)
 
 console.log('running script.js');
